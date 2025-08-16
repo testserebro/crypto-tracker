@@ -1,0 +1,51 @@
+/**
+ * Глобальные стили для приложения криптоплатформы.
+ * 
+ * Этот файл содержит базовые CSS стили и настройки для всего приложения.
+ * Включает импорт Tailwind CSS, CSS переменные для темизации и адаптивные стили.
+ */
+
+/* Импорт Tailwind CSS - утилитарный CSS фреймворк */
+@import "tailwindcss";
+
+/**
+ * CSS переменные для цветовой схемы.
+ * Определяют основные цвета приложения для светлой темы.
+ */
+:root {
+  --background: #ffffff;    /* Белый фон для светлой темы */
+  --foreground: #171717;    /* Темно-серый цвет текста */
+}
+
+/**
+ * Настройки темы для Tailwind CSS.
+ * Связывает CSS переменные с Tailwind конфигурацией.
+ */
+@theme inline {
+  --color-background: var(--background);    /* Цвет фона для Tailwind */
+  --color-foreground: var(--foreground);    /* Цвет текста для Tailwind */
+  --font-sans: var(--font-geist-sans);      /* Основной шрифт (Geist Sans) */
+  --font-mono: var(--font-geist-mono);      /* Моноширинный шрифт (Geist Mono) */
+}
+
+/**
+ * Адаптивная темная тема.
+ * Автоматически переключается на темную тему, если пользователь
+ * предпочитает темную схему в настройках системы.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;    /* Темный фон для темной темы */
+    --foreground: #ededed;    /* Светло-серый цвет текста */
+  }
+}
+
+/**
+ * Базовые стили для элемента body.
+ * Применяются ко всему содержимому страницы.
+ */
+body {
+  background: var(--background);                    /* Фон страницы */
+  color: var(--foreground);                         /* Цвет текста */
+  font-family: Arial, Helvetica, sans-serif;        /* Fallback шрифт */
+}
